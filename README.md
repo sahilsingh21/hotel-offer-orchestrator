@@ -1,10 +1,3 @@
-<img width="1081" height="852" alt="image" src="https://github.com/user-attachments/assets/84e7b5f0-716d-4749-9d05-ccb360fdfd9c" />
-
-
-
-
-
-
 # Hotel Offer Orchestrator (Node.js + Temporal + Redis)
 
 Aggregate overlapping hotel offers from two mock suppliers, dedupe by **name**, pick the **lowest price**, cache in **Redis**, and support price-range filtering **inside Redis**.
@@ -23,10 +16,20 @@ Aggregate overlapping hotel offers from two mock suppliers, dedupe by **name**, 
 
 ## Endpoints
 - `GET /api/hotels?city=delhi` → returns deduped list
+  <img width="1081" height="852" alt="image" src="https://github.com/user-attachments/assets/84e7b5f0-716d-4749-9d05-ccb360fdfd9c" />
+
 - `GET /api/hotels?city=delhi&minPrice=5000&maxPrice=7000` → filtered via Redis
+  <img width="1072" height="805" alt="image" src="https://github.com/user-attachments/assets/913e8cf7-bb77-4e2a-92ac-26abb6993618" />
+
 - `GET /supplierA/hotels?city=delhi` → mock data
+  <img width="1033" height="807" alt="image" src="https://github.com/user-attachments/assets/431faa2d-a904-4a65-a8f1-ed6bd04a29df" />
+
 - `GET /supplierB/hotels?city=delhi` → mock data
+  <img width="1002" height="825" alt="image" src="https://github.com/user-attachments/assets/fd7815c7-68cb-4cd9-88c6-df09512c75e1" />
+
 - `GET /health` → basic health info (bonus)
+  <img width="651" height="673" alt="image" src="https://github.com/user-attachments/assets/7eedf6e7-1ec9-4aa7-92b2-a6f9ee67acbf" />
+
 
 ## Quickstart (Docker)
 ```bash
