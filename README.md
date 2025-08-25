@@ -1,3 +1,10 @@
+<img width="1081" height="852" alt="image" src="https://github.com/user-attachments/assets/84e7b5f0-716d-4749-9d05-ccb360fdfd9c" />
+
+
+
+
+
+
 # Hotel Offer Orchestrator (Node.js + Temporal + Redis)
 
 Aggregate overlapping hotel offers from two mock suppliers, dedupe by **name**, pick the **lowest price**, cache in **Redis**, and support price-range filtering **inside Redis**.
