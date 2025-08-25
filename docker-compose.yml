@@ -1,0 +1,57 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    container_name: hotel-offer-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_TASK_QUEUE=hotel-orchestrator
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+      - temporal
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: hotel-offer-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  temporal:
+    image: temporalio/auto-setup:1.25.0
+    container_name: temporal
+    environment:
+      - DB=postgres12
+      - DB_PORT=5432
+      - POSTGRES_USER=temporal
+      - POSTGRES_PWD=temporal
+      - POSTGRES_SEEDS=postgres
+    ports:
+      - "7233:7233"
+      - "8080:8080"
+    restart: unless-stopped
+  
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=temporal
+      - POSTGRES_PASSWORD=temporal
+    ports:
+      - "5432:5432"
+
+  temporal-ui:
+    image: temporalio/ui:2.28.0
+    container_name: temporal-ui
+    environment:
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_CSRF_COOKIE_INSECURE=true
+    ports:
+      - "8080:8080"
+    depends_on:
+      - temporal
+    restart: unless-stopped
