@@ -28,6 +28,7 @@ Aggregate overlapping hotel offers from two mock suppliers, dedupe by **name**, 
   <img width="1002" height="825" alt="image" src="https://github.com/user-attachments/assets/fd7815c7-68cb-4cd9-88c6-df09512c75e1" />
 
 - `GET /health` → basic health info (bonus)
+  
   <img width="651" height="673" alt="image" src="https://github.com/user-attachments/assets/7eedf6e7-1ec9-4aa7-92b2-a6f9ee67acbf" />
 
 
